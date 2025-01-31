@@ -5,10 +5,7 @@ const SearchBar = ({ setSearchTerm }) => {
 
   const handleSearch = (e) => {
     e.preventDefault();
-    
-    console.log("🔍 Searching for:", input);
-    
-    setSearchTerm(input.trim()); // Supprimer les espaces inutiles
+    setSearchTerm(input.trim());
   };
 
   return (
@@ -25,17 +22,7 @@ const SearchBar = ({ setSearchTerm }) => {
           marginRight: "10px",
         }}
       />
-      <button
-        type="submit"
-        style={{
-          padding: "10px 20px",
-          fontSize: "16px",
-          backgroundColor: "#007bff",
-          color: "white",
-          border: "none",
-          borderRadius: "5px",
-        }}
-      >
+      <button type="submit" style={{ padding: "10px 20px", fontSize: "16px", backgroundColor: "#007bff", color: "white", border: "none", borderRadius: "5px" }}>
         Search
       </button>
     </form>

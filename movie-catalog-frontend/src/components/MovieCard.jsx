@@ -1,49 +1,16 @@
-import React from 'react';
+import React from "react";
 
-const MovieCard = ({ movie, onUpdate, onDelete }) => {
+const MovieCard = ({ movie }) => {
+  const imageUrl = movie.poster_path
+    ? `https://image.tmdb.org/t/p/w500${movie.poster_path}`
+    : "https://via.placeholder.com/200x300?text=No+Image";
+
   return (
-    <div
-      style={{
-        border: '1px solid black',
-        padding: '10px',
-        margin: '10px',
-        borderRadius: '5px',
-        backgroundColor: '#f9f9f9',
-      }}
-    >
+    <div style={{ border: "1px solid black", padding: "10px", margin: "10px", borderRadius: "5px", backgroundColor: "#f9f9f9" }}>
+      <img src={imageUrl} alt={movie.title} style={{ width: "100%", borderRadius: "5px" }} />
       <h3>{movie.title}</h3>
-      <p>Genre: {movie.genre}</p>
-      <p>Year: {movie.year}</p>
-      <p>{movie.description}</p>
-      <div style={{ marginTop: '10px' }}>
-        <button
-          onClick={onUpdate}
-          style={{
-            marginRight: '10px',
-            padding: '5px 10px',
-            backgroundColor: '#007bff',
-            color: 'white',
-            border: 'none',
-            borderRadius: '5px',
-            cursor: 'pointer',
-          }}
-        >
-          Update
-        </button>
-        <button
-          onClick={onDelete}
-          style={{
-            padding: '5px 10px',
-            backgroundColor: '#ff4d4d',
-            color: 'white',
-            border: 'none',
-            borderRadius: '5px',
-            cursor: 'pointer',
-          }}
-        >
-          Delete
-        </button>
-      </div>
+      <p>📅 {movie.release_date}</p>
+      <p>⭐ {movie.vote_average}/10</p>
     </div>
   );
 };
